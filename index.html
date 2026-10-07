@@ -1,31 +1,545 @@
 <!doctype html>
-<html lang="ru" data-stub>
+<html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Интернет-магазин мебели · демо готовится</title>
-<meta name="robots" content="noindex">
-<meta http-equiv="refresh" content="120">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>«Дубрава» · интернет-магазин мебели с доставкой и сборкой</title>
+<meta name="description" content="Диваны, кресла, столы, кухни и мебель для хранения. Доставка за 3 дня, бесплатная сборка, рассрочка 0% на 6 месяцев.">
+<meta property="og:title" content="«Дубрава» · интернет-магазин мебели">
+<meta property="og:description" content="Диваны, кресла, столы и кухни с доставкой и бесплатной сборкой.">
+<meta property="og:url" content="https://web-atelie.ru/mebel-magazin/">
+<meta property="og:image" content="https://web-atelie.ru/mebel-magazin/assets/p02.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f5f1ea">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%233d4a3a'/%3E%3Cpath d='M9 22V12h7a5 5 0 0 1 0 10z' fill='none' stroke='%23e9dcc3' stroke-width='2.4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@1,700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FurnitureStore","name":"Дубрава","description":"Интернет-магазин мебели с доставкой и бесплатной сборкой.","url":"https://web-atelie.ru/mebel-magazin","telephone":"+7 (900) 000-00-00","address":{"@type":"PostalAddress","streetAddress":"ул. Ленина, 40","addressCountry":"RU"},"openingHours":"Mo-Su 10:00-21:00"}</script>
 <style>
-:root{--bg:#F6F3EE;--ink:#1F1E1C;--muted:#6B655C;--acc:#8A6737}
-@media (prefers-color-scheme:dark){:root{--bg:#161615;--ink:#EDE7DC;--muted:#A9A195;--acc:#C9A66B}}
-*{box-sizing:border-box}html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,system-ui,sans-serif;display:grid;place-items:center;padding:24px}
-main{max-width:560px;text-align:center;display:flex;flex-direction:column;gap:18px;align-items:center}
-.k{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);font-weight:600}
-h1{font:500 clamp(2rem,6vw,3rem)/1.1 "Cormorant Garamond",Georgia,serif;margin:0;text-wrap:balance}
-p{margin:0;color:var(--muted)}
-.bar{width:220px;height:3px;background:color-mix(in srgb,var(--acc) 20%,transparent);border-radius:3px;overflow:hidden}
-.bar i{display:block;height:100%;width:40%;background:var(--acc);animation:m 1.6s ease-in-out infinite}
-@keyframes m{0%{transform:translateX(-100%)}100%{transform:translateX(250%)}}
-@media (prefers-reduced-motion:reduce){.bar i{animation:none;width:60%}}
+:root{--bg:#f5f1ea;--card:#fffdf9;--ink:#24231f;--soft:#5f5a51;--mute:#8d867a;--line:#e3dbcd;--acc:#3d4a3a;--acc2:#a5733f;--sale:#b4482f;--ok:#3f7a4e;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:16px/1.55 Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.005em}
+h2{font-size:clamp(30px,3.6vw,44px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 26px;font-weight:700;font-size:15px;background:var(--acc);color:#f5efe3;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s}
+.btn:hover{background:#2d382b;transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--acc);box-shadow:inset 0 0 0 1.5px var(--acc)}
+.btn.ghost:hover{background:var(--acc);color:#f5efe3}
+.btn.sm{padding:10px 16px;font-size:14px}
+.muted{color:var(--mute)}
+
+/* шапка */
+.top{background:var(--acc);color:#e9dcc3;font-size:13px}
+.top .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px}
+.top a{text-decoration:none}
+header.h{position:sticky;top:0;z-index:20;background:rgba(245,241,234,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.h .wrap{display:flex;align-items:center;gap:22px;height:72px}
+.logo{display:flex;align-items:baseline;gap:8px;text-decoration:none;font:600 30px "Cormorant Garamond",serif;color:var(--acc);white-space:nowrap}
+.logo small{font:700 10px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+nav.m{display:flex;gap:22px;font-weight:600;font-size:15px}
+nav.m a{text-decoration:none;color:var(--soft)}
+nav.m a:hover,nav.m a.on{color:var(--ink)}
+.search{flex:1;max-width:340px;margin-left:auto;position:relative}
+.search input{width:100%;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:10px 16px 10px 40px;outline:0}
+.search input:focus{border-color:var(--acc)}
+.search svg{position:absolute;left:14px;top:50%;width:16px;height:16px;transform:translateY(-50%);stroke:var(--mute)}
+.cartb{position:relative;display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:9px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);white-space:nowrap}
+.cartb svg{width:20px;height:20px;stroke:var(--ink)}
+.cartb b{min-width:20px;height:20px;border-radius:10px;background:var(--acc2);color:#fff;font-size:12px;display:inline-grid;place-items:center;padding:0 6px}
+.burger{display:none;background:none;border:0;padding:6px;cursor:pointer}
+.burger svg{width:26px;height:26px;stroke:var(--ink)}
+
+main{min-height:60vh}
+.page{display:none}
+.page.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* главная */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:center;padding:56px 0 64px}
+.hero .k{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--acc2)}
+.hero h1{font-size:clamp(42px,5.6vw,74px);margin:14px 0 18px}
+.hero p{font-size:18px;color:var(--soft);max-width:520px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .pic{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3.4;box-shadow:0 30px 60px -30px rgba(40,35,25,.45)}
+.hero .pic img{width:100%;height:100%;object-fit:cover}
+.hero .tag{position:absolute;left:18px;bottom:18px;background:var(--card);border-radius:12px;padding:12px 16px;font-size:14px;box-shadow:0 10px 30px -10px rgba(0,0,0,.3)}
+.hero .tag b{display:block;font-size:20px;font-family:"Cormorant Garamond",serif}
+.perks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:72px}
+.perk{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.perk b{display:block;font:600 26px "Cormorant Garamond",serif;color:var(--acc)}
+.perk span{font-size:14px;color:var(--soft)}
+.sec{margin-bottom:80px}
+.sec .hd{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:26px}
+.sec .hd a{font-weight:700;color:var(--acc);text-decoration:none;white-space:nowrap}
+.cats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.cat{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;text-decoration:none;color:#fff;background:#ccc}
+.cat img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cat:hover img{transform:scale(1.05)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(20,18,14,.72))}
+.cat div{position:absolute;left:16px;right:16px;bottom:14px;z-index:1}
+.cat b{display:block;font:600 24px "Cormorant Garamond",serif}
+.cat span{font-size:13px;opacity:.85}
+.banner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:22px;overflow:hidden;background:var(--acc);color:#efe6d4}
+.banner div{padding:48px}
+.banner h2{color:#fff}
+.banner p{margin:14px 0 24px;color:#d6ccb8}
+.banner .btn{background:#efe6d4;color:var(--acc)}
+.banner img{width:100%;height:100%;object-fit:cover;min-height:320px}
+.revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.rev .st{color:var(--acc2);letter-spacing:2px}
+.rev p{margin:10px 0 14px;color:var(--soft)}
+.rev b{font-size:14px}
+.note{font-size:13px;color:var(--mute);margin-top:12px}
+
+/* карточки товаров */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
+.card:hover{box-shadow:0 18px 40px -22px rgba(40,35,25,.45);transform:translateY(-2px)}
+.card .im{position:relative;aspect-ratio:4/3;background:#e9e2d6;display:block}
+.card .im img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:12px;top:12px;font-size:12px;font-weight:800;padding:4px 9px;border-radius:999px;background:var(--sale);color:#fff}
+.badge.new{background:var(--acc)}
+.card .bd{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .nm{font-weight:700;text-decoration:none;line-height:1.3}
+.card .meta{font-size:13px;color:var(--mute)}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price b{font-size:20px}
+.price s{color:var(--mute);font-size:14px}
+.card .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:8px}
+.stock{font-size:12px;font-weight:700;color:var(--ok)}
+.stock.no{color:var(--acc2)}
+
+/* каталог */
+.crumbs{font-size:14px;color:var(--mute);padding:26px 0 8px}
+.crumbs a{text-decoration:none}
+.cat-h{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.cat-h h1{font-size:clamp(36px,4.4vw,54px)}
+.lay{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start;padding-bottom:80px}
+.flt{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;position:sticky;top:92px}
+.flt h4{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:16px 0 10px}
+.flt h4:first-child{margin-top:0}
+.flt label{display:flex;align-items:center;gap:9px;font-size:15px;padding:4px 0;cursor:pointer}
+.flt input[type=checkbox],.flt input[type=radio]{accent-color:var(--acc);width:16px;height:16px}
+.flt .pr{display:flex;gap:8px}
+.flt .pr input{width:100%;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fff}
+.flt .reset{margin-top:16px;width:100%}
+.sort{display:flex;align-items:center;gap:10px;font-size:14px}
+.sort select{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px}
+.ftoggle{display:none}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;background:var(--card);border:1px dashed var(--line);border-radius:var(--r);color:var(--soft)}
+
+/* товар */
+.prod{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:44px;padding-bottom:70px}
+.prod .im{border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:#e9e2d6}
+.prod .im img{width:100%;height:100%;object-fit:cover}
+.prod h1{font-size:clamp(34px,3.8vw,48px);margin-bottom:10px}
+.prod .price b{font-size:30px}
+.prod .lead{color:var(--soft);margin:16px 0}
+.specs{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+.specs td{padding:9px 0;border-bottom:1px solid var(--line)}
+.specs td:first-child{color:var(--mute);width:42%}
+.buy{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:20px 0}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.qty button{width:40px;height:44px;border:0;background:none;font-size:20px;cursor:pointer}
+.qty span{min-width:28px;text-align:center;font-weight:700}
+.info{display:grid;gap:10px;margin-top:8px}
+.info div{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
+.info b{display:block}
+
+/* корзина и оформление */
+.cartp{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;align-items:start;padding-bottom:80px}
+.line{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px;margin-bottom:12px}
+.line img{width:120px;aspect-ratio:4/3;object-fit:cover;border-radius:10px}
+.line .nm{font-weight:700;text-decoration:none}
+.line .ctl{display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap}
+.line .rm{border:0;background:none;color:var(--mute);cursor:pointer;font-size:14px;text-decoration:underline}
+.line .sum{font-weight:800;font-size:18px;white-space:nowrap}
+.total{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;position:sticky;top:92px}
+.total .r{display:flex;justify-content:space-between;gap:10px;padding:7px 0;font-size:15px}
+.total .r.big{border-top:1px solid var(--line);margin-top:8px;padding-top:14px;font-size:20px;font-weight:800}
+.total .btn{width:100%;margin-top:14px}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.form .full{grid-column:1/-1}
+.form label{display:grid;gap:6px;font-size:14px;font-weight:600}
+.form input,.form textarea,.form select{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 12px;font-weight:400;outline:0;min-width:0}
+.form input:focus,.form textarea:focus{border-color:var(--acc)}
+.form .agree{display:flex;gap:9px;align-items:flex-start;font-weight:400;font-size:13px;color:var(--soft)}
+.form .agree input{margin-top:3px;accent-color:var(--acc)}
+.pay{display:grid;gap:8px}
+.pay label{display:flex;flex-direction:row;align-items:center;gap:9px;font-weight:500;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.err{color:var(--sale);font-size:14px;min-height:20px}
+.done{max-width:620px;margin:40px auto 90px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:44px 28px}
+.done h1{font-size:44px;margin:10px 0}
+.done .num{display:inline-block;margin:10px 0 20px;font-weight:800;font-size:20px;padding:8px 16px;border-radius:999px;background:#ece5d8}
+
+/* доставка, контакты */
+.txt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-bottom:70px}
+.txt div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.txt h3{font-size:26px;margin-bottom:8px}
+.txt p,.txt li{color:var(--soft);font-size:15px}
+.txt ul{padding-left:18px;display:grid;gap:4px}
+
+/* подвал */
+.foot{border-top:1px solid var(--line);background:#efe9df;padding:36px 0}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 24px;font-size:14px;color:var(--soft)}
+.foot__made{display:inline-block;white-space:nowrap;font-style:italic;font-size:15px;line-height:1.4;color:var(--soft);padding:.4em 0}
+.foot__made a{display:inline;margin:0 0 0 .3em;color:inherit;text-decoration:none;font-family:Calibri,"Carlito",sans-serif;font-weight:700;font-style:italic;font-size:1.12em}
+.foot__made a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:.18em}
+.foot__made img{display:inline-block;width:40px;height:52px;max-width:none;margin-left:.35em;vertical-align:-7px}
+.foot__demo{flex-basis:100%;font-size:13px;color:var(--mute)}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:600;z-index:50;transition:transform .3s;display:flex;gap:12px;align-items:center;white-space:nowrap}
+.toast.on{transform:translate(-50%,0)}
+.toast a{color:#e9c58d}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media (max-width:1080px){
+ .cats{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .grid.g4{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .search{max-width:220px}
+}
+@media (max-width:860px){
+ .wrap{padding:0 16px}
+ header.h .wrap{height:62px;gap:12px}
+ nav.m{display:none;position:absolute;left:0;right:0;top:62px;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:6px 16px 12px}
+ nav.m.open{display:flex}
+ nav.m a{padding:10px 0}
+ .burger{display:block}
+ .search{display:none}
+ .cartb{margin-left:auto}
+ .top .wrap span:first-child{display:none}
+ .hero{grid-template-columns:minmax(0,1fr);gap:26px;padding:28px 0 40px}
+ .perks{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:56px}
+ .cats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .grid,.grid.g4{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .banner{grid-template-columns:minmax(0,1fr)}
+ .banner div{padding:30px 22px}
+ .banner img{min-height:220px}
+ .revs,.txt{grid-template-columns:minmax(0,1fr)}
+ .lay{grid-template-columns:minmax(0,1fr)}
+ .flt{position:static;display:none}
+ .flt.open{display:block}
+ .ftoggle{display:inline-flex}
+ .prod{grid-template-columns:minmax(0,1fr);gap:22px}
+ .cartp{grid-template-columns:minmax(0,1fr)}
+ .total{position:static}
+ .form{grid-template-columns:minmax(0,1fr)}
+ .sec{margin-bottom:56px}
+}
+@media (max-width:520px){
+ .grid,.grid.g4{grid-template-columns:minmax(0,1fr)}
+ .line{grid-template-columns:84px minmax(0,1fr)}
+ .line img{width:84px}
+ .line .sum{grid-column:2}
+ .cartb span{display:none}
+ .logo{font-size:26px}.logo small{display:none}
+ .sort{flex-wrap:wrap}
+}
 </style>
 </head>
-<body><main>
-<div class="k">Демо-версия по вашему ТЗ</div>
-<h1>Интернет-магазин мебели</h1>
-<div class="bar" aria-hidden="true"><i></i></div>
-<p>Сайт сейчас собирается по вашему техническому заданию.<br>Будет готов сегодня к <b>14:00</b> – по этой же ссылке.</p>
-<p style="font-size:.85rem">Страница обновится сама.</p>
-</main></body></html>
+<body>
+<div class="top"><div class="wrap"><span>Доставка по городу и области · бесплатная сборка</span><span><a href="tel:+79000000000">+7 (900) 000-00-00</a> · ежедневно 10:00–21:00</span></div></div>
+<header class="h"><div class="wrap">
+  <a class="logo" href="#/">Дубрава <small>мебель для дома</small></a>
+  <nav class="m" id="nav">
+    <a href="#/catalog" data-r="catalog">Каталог</a>
+    <a href="#/catalog?cat=kitchen" data-r="kitchen">Кухни на заказ</a>
+    <a href="#/delivery" data-r="delivery">Доставка и оплата</a>
+    <a href="#/contacts" data-r="contacts">Контакты</a>
+  </nav>
+  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Найти диван, стол…" aria-label="Поиск по каталогу"></label>
+  <a class="cartb" href="#/cart" aria-label="Корзина"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/><circle cx="10" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg><span>Корзина</span><b id="cnt">0</b></a>
+  <button class="burger" id="burger" aria-label="Меню"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+
+<main>
+<!-- Главная -->
+<section class="page" id="pg-home"><div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="k">Магазин мебели · с 2012 года</div>
+      <h1>Мебель, в которой хочется жить</h1>
+      <p>Диваны, кресла, столы и кухни из дерева и качественных тканей. Привезём за 3 дня, соберём бесплатно, а образцы тканей покажем дома.</p>
+      <div class="row"><a class="btn" href="#/catalog">Перейти в каталог</a><a class="btn ghost" href="#/catalog?cat=kitchen">Кухни на заказ</a></div>
+    </div>
+    <a class="pic" href="#/p/2"><img src="assets/p02.webp" alt="Серый диван «Берген» в гостиной" fetchpriority="high"><span class="tag">Диван «Берген»<b>54 990 ₽</b></span></a>
+  </div>
+  <div class="perks">
+    <div class="perk"><b>3 дня</b><span>доставка по городу и области</span></div>
+    <div class="perk"><b>0 ₽</b><span>сборка любой мебели из каталога</span></div>
+    <div class="perk"><b>0%</b><span>рассрочка на 6 месяцев без переплаты</span></div>
+    <div class="perk"><b>18 мес.</b><span>гарантия на каркас и механизмы</span></div>
+  </div>
+  <div class="sec"><div class="hd"><h2>Категории</h2><a href="#/catalog">Весь каталог →</a></div><div class="cats" id="cats"></div></div>
+  <div class="sec"><div class="hd"><h2>Хиты продаж</h2><a href="#/catalog?sort=pop">Смотреть все →</a></div><div class="grid g4" id="hits"></div></div>
+  <div class="sec"><div class="banner">
+    <div><h2>Кухня по вашим размерам</h2><p>Бесплатный замер и 3D-проект до оплаты. Фасады из массива и МДФ, фурнитура Blum, изготовление за 30 дней.</p><a class="btn" href="#/catalog?cat=kitchen">Смотреть кухни</a></div>
+    <img src="assets/k1.webp" alt="Светлая кухня с островом" loading="lazy">
+  </div></div>
+  <div class="sec"><div class="hd"><h2>Отзывы покупателей</h2></div>
+    <div class="revs">
+      <div class="rev"><div class="st">★★★★★</div><p>Заказали диван «Осло» – привезли через два дня, собрали за 20 минут и унесли упаковку. Велюр приятный, не скатывается.</p><b>Марина, диван «Осло»</b></div>
+      <div class="rev"><div class="st">★★★★★</div><p>Брали обеденную группу в рассрочку. Оформили прямо дома при доставке, без похода в банк.</p><b>Игорь, обеденная группа «Нуар»</b></div>
+      <div class="rev"><div class="st">★★★★☆</div><p>Кухню делали по размерам. Проект показали в 3D ещё до оплаты, поменяли цвет фасадов – вышло ровно как хотели.</p><b>Ольга, кухня «Классика»</b></div>
+    </div>
+    <p class="note">Отзывы в этом демо условные – на сайте заказчика будут настоящие.</p>
+  </div>
+</div></section>
+
+<!-- Каталог -->
+<section class="page" id="pg-catalog"><div class="wrap">
+  <div class="crumbs"><a href="#/">Главная</a> / <span id="crumb">Каталог</span></div>
+  <div class="cat-h"><h1 id="ctitle">Каталог мебели</h1>
+    <div class="sort"><button class="btn ghost sm ftoggle" id="ftoggle">Фильтры</button><span class="muted" id="found"></span>
+      <select id="sort" aria-label="Сортировка"><option value="pop">Сначала популярные</option><option value="cheap">Сначала дешевле</option><option value="exp">Сначала дороже</option><option value="new">Новинки</option></select></div>
+  </div>
+  <div class="lay">
+    <aside class="flt" id="flt">
+      <h4>Категория</h4><div id="fcat"></div>
+      <h4>Цена, ₽</h4><div class="pr"><input id="pmin" type="number" inputmode="numeric" placeholder="от" aria-label="Цена от"><input id="pmax" type="number" inputmode="numeric" placeholder="до" aria-label="Цена до"></div>
+      <h4>Материал</h4><div id="fmat"></div>
+      <h4>Цвет</h4><div id="fcol"></div>
+      <h4>Наличие</h4><label><input type="checkbox" id="fstock"> Только в наличии</label>
+      <button class="btn ghost sm reset" id="freset">Сбросить фильтры</button>
+    </aside>
+    <div class="grid" id="list"></div>
+  </div>
+</div></section>
+
+<!-- Товар -->
+<section class="page" id="pg-product"><div class="wrap" id="prod"></div></section>
+
+<!-- Корзина -->
+<section class="page" id="pg-cart"><div class="wrap">
+  <div class="crumbs"><a href="#/">Главная</a> / Корзина</div>
+  <div class="cat-h"><h1>Корзина</h1></div>
+  <div id="cartbox"></div>
+</div></section>
+
+<!-- Оформление -->
+<section class="page" id="pg-checkout"><div class="wrap">
+  <div class="crumbs"><a href="#/">Главная</a> / <a href="#/cart">Корзина</a> / Оформление</div>
+  <div class="cat-h"><h1>Оформление заказа</h1></div>
+  <div class="cartp">
+    <form class="form" id="order" novalidate>
+      <label>Имя<input name="name" autocomplete="name" required></label>
+      <label>Телефон<input name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required></label>
+      <label class="full">Адрес доставки<input name="addr" autocomplete="street-address" placeholder="Город, улица, дом, квартира, этаж"></label>
+      <label>Удобная дата<input name="date" type="date"></label>
+      <label>Лифт<select name="lift"><option>Есть грузовой лифт</option><option>Есть пассажирский лифт</option><option>Нет лифта</option><option>Частный дом</option></select></label>
+      <div class="full pay"><b style="font-size:14px">Оплата</b>
+        <label><input type="radio" name="pay" value="Картой или наличными при получении" checked> Картой или наличными при получении</label>
+        <label><input type="radio" name="pay" value="Онлайн картой на сайте"> Онлайн картой на сайте</label>
+        <label><input type="radio" name="pay" value="Рассрочка 0% на 6 месяцев"> Рассрочка 0% на 6 месяцев</label>
+      </div>
+      <label class="full">Комментарий<textarea name="note" rows="3" placeholder="Например: позвоните за час до доставки"></textarea></label>
+      <label class="agree full"><input type="checkbox" name="agree" required> Соглашаюсь на обработку персональных данных согласно политике конфиденциальности</label>
+      <div class="full err" id="oerr" role="alert"></div>
+      <div class="full"><button class="btn" type="submit">Подтвердить заказ</button></div>
+    </form>
+    <aside class="total" id="osum"></aside>
+  </div>
+</div></section>
+
+<!-- Заказ принят -->
+<section class="page" id="pg-done"><div class="wrap"><div class="done">
+  <div style="font-size:44px">✓</div><h1>Заказ принят</h1><div class="num" id="onum"></div>
+  <p class="muted">Менеджер позвонит в течение 15 минут, уточнит время доставки и сборки. Это демо: заказ никуда не отправляется.</p>
+  <p style="margin-top:22px"><a class="btn" href="#/catalog">Вернуться в каталог</a></p>
+</div></div></section>
+
+<!-- Доставка и оплата -->
+<section class="page" id="pg-delivery"><div class="wrap">
+  <div class="crumbs"><a href="#/">Главная</a> / Доставка и оплата</div>
+  <div class="cat-h"><h1>Доставка, сборка и оплата</h1></div>
+  <div class="txt">
+    <div><h3>Доставка</h3><ul><li>По городу – бесплатно от 30 000 ₽, иначе 990 ₽</li><li>По области – 40 ₽ за км от города</li><li>Срок – 1–3 дня для товаров в наличии</li><li>Подъём на этаж с лифтом – бесплатно</li></ul></div>
+    <div><h3>Сборка</h3><ul><li>Бесплатно для всей мебели из каталога</li><li>Собираем в день доставки</li><li>Увозим упаковку и мусор</li><li>Кухни – монтаж под ключ</li></ul></div>
+    <div><h3>Оплата</h3><ul><li>Картой или наличными при получении</li><li>Онлайн на сайте</li><li>Рассрочка 0% на 6 месяцев</li><li>Для юрлиц – по счёту</li></ul></div>
+  </div>
+</div></section>
+
+<!-- Контакты -->
+<section class="page" id="pg-contacts"><div class="wrap">
+  <div class="crumbs"><a href="#/">Главная</a> / Контакты</div>
+  <div class="cat-h"><h1>Контакты</h1></div>
+  <div class="txt">
+    <div><h3>Шоурум</h3><p>ул. Ленина, 40<br>ежедневно 10:00–21:00</p><p style="margin-top:10px">Вся мебель из каталога стоит в зале – можно посидеть и потрогать ткани.</p></div>
+    <div><h3>Телефон</h3><p><a href="tel:+79000000000">+7 (900) 000-00-00</a><br>звонок бесплатный</p><p style="margin-top:10px"><a class="btn sm" href="tel:+79000000000">Позвонить</a></p></div>
+    <div><h3>Мессенджеры</h3><p>Пришлём фото, видео и образцы тканей.</p><p style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn sm ghost" href="#/contacts">WhatsApp</a><a class="btn sm ghost" href="#/contacts">Telegram</a></p></div>
+  </div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <span>Мебельный магазин «Дубрава» · <a href="tel:+79000000000">+7 (900) 000-00-00</a></span>
+  <span class="foot__made">Создан в <a href="https://web-atelie.ru/" target="_blank" rel="noopener">«Веб-Ателье»</a><img src="assets/web-atelie.png" alt="" width="40" height="52" loading="lazy" decoding="async"></span>
+  <span class="foot__demo">Демо-концепт интернет-магазина мебели. Название, контакты, цены и отзывы условные, фото – из стоковой библиотеки.</span>
+</div></footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+// Каталог: [id, название, категория, цена, старая цена, материал, цвет, размеры, в наличии, фото, популярность, новинка, описание]
+const CATS = {sofa:'Диваны', chair:'Кресла', table:'Столы и стулья', store:'Хранение и столики', kitchen:'Кухни'};
+const P = [
+ [1,'Диван «Осло» трёхместный','sofa',64990,0,'Велюр, массив сосны','Зелёный','220 × 92 × 85 см',1,'p01',98,0,'Глубокая посадка и съёмные чехлы: велюр можно чистить и стирать. Механизм не нужен – просто большой и мягкий диван для всей семьи.'],
+ [2,'Диван «Берген» с подушками','sofa',54990,61990,'Рогожка, массив берёзы','Серый','205 × 95 × 88 см',1,'p02',100,0,'Три подушки в комплекте, ножки из массива. Рогожка не боится кошачьих когтей.'],
+ [3,'Диван «Мальмё» двухместный','sofa',39990,0,'Велюр, массив бука','Синий','160 × 85 × 82 см',1,'p03',80,1,'Компактный диван для небольшой гостиной, кабинета или кухни-гостиной.'],
+ [4,'Диван «Честер» кожаный','sofa',89990,0,'Натуральная кожа, массив дуба','Коричневый','210 × 90 × 78 см',0,'p04',70,0,'Классика из натуральной кожи: со временем она становится только красивее. Изготовление под заказ – 14 дней.'],
+ [5,'Кресло «Лофт»','chair',24990,0,'Велюр, массив бука','Синий','78 × 80 × 84 см',1,'p05',88,0,'Мягкое кресло с высокой спинкой. Хорошо смотрится в паре с диваном «Мальмё».'],
+ [6,'Кресло «Уют»','chair',18990,22990,'Рогожка, металл','Серый','70 × 72 × 80 см',1,'p06',76,0,'Лёгкое кресло для спальни или рабочего угла.'],
+ [7,'Обеденная группа «Нуар»','table',49990,0,'Массив ясеня','Чёрный','Стол 160 × 90 см, 4 стула',1,'p07',90,0,'Стол и четыре стула в одном стиле. Покрытие маслом с воском выдерживает горячее и влагу.'],
+ [8,'Стол «Дуб» с шестью стульями','table',72990,0,'Массив дуба','Натуральный','Стол 200 × 100 см, 6 стульев',1,'p08',84,0,'Большой стол для семейных ужинов и гостей. Дуб – на десятилетия.'],
+ [9,'Стол «Модерн» с мягкими стульями','table',58990,64990,'МДФ, велюр','Бежевый','Стол 180 × 90 см, 4 стула',0,'p09',72,1,'Светлый стол с мягкими стульями – для современной кухни-гостиной.'],
+ [10,'Стул «Сканди»','table',6490,0,'Массив бука','Натуральный','45 × 50 × 82 см',1,'p10',95,0,'Простой и прочный стул. Подходит к любому столу из каталога.'],
+ [11,'Стол «Лофт» из слэба','table',84990,0,'Слэб карагача, металл','Натуральный','220 × 95 см',0,'p11',65,1,'Столешница из цельного спила дерева – двух одинаковых не бывает. Изготовление 21 день.'],
+ [12,'Журнальные столики «Матрёшка», 3 шт.','store',14990,0,'Массив акации','Орех','45 / 40 / 35 см',1,'p12',78,0,'Три столика вкладываются один в другой и занимают место одного.'],
+ [13,'Комод «Винтаж»','store',46990,0,'Массив сосны','Тёмный орех','120 × 50 × 85 см',1,'p13',60,0,'Комод с кованой фурнитурой и глубокими ящиками на доводчиках.'],
+ [14,'Кухня «Прованс», 3,2 м','kitchen',189000,0,'Фасады массив, фурнитура Blum','Серый','3,2 м по стене',0,'k1',74,0,'Цена за готовый комплект 3,2 м. Делаем по вашим размерам: замер и 3D-проект бесплатно.'],
+ [15,'Кухня «Классика», 3 м','kitchen',159000,0,'Фасады МДФ эмаль, фурнитура Blum','Белый','3 м по стене',0,'k2',68,0,'Белая классика со стеклянными витринами. Изготовление 30 дней.'],
+ [16,'Кухня «Мрамор» с островом','kitchen',249000,0,'МДФ эмаль, кварцевая столешница','Белый','4 м + остров 2 м',0,'k3',62,1,'Кухня с островом и барной стойкой. Столешница из кварцевого агломерата под мрамор.']
+].map(a => ({id:a[0], name:a[1], cat:a[2], price:a[3], old:a[4], mat:a[5], color:a[6], size:a[7], stock:!!a[8], img:'assets/' + a[9] + '.webp', pop:a[10], isNew:!!a[11], text:a[12]}));
+const MATS = ['Велюр', 'Рогожка', 'Кожа', 'Массив', 'МДФ', 'Металл'];
+const matOf = p => MATS.filter(m => p.mat.toLowerCase().includes(m === 'Кожа' ? 'кож' : m.toLowerCase()));
+const COLORS = [...new Set(P.map(p => p.color))];
+
+const $ = id => document.getElementById(id);
+const rub = n => n.toLocaleString('ru-RU') + ' ₽';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// Корзина хранится в браузере посетителя
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem('dubrava-cart') || '{}') || {}; } catch (e) {}
+const save = () => { try { localStorage.setItem('dubrava-cart', JSON.stringify(cart)); } catch (e) {} $('cnt').textContent = Object.values(cart).reduce((a, b) => a + b, 0); };
+const add = (id, n = 1) => { cart[id] = (cart[id] || 0) + n; save(); toast('Добавлено в корзину · <a href="#/cart">Перейти</a>'); };
+let tt; function toast(h) { const t = $('toast'); t.innerHTML = h; t.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 2600); }
+
+function card(p) {
+  const badge = p.old ? `<span class="badge">−${Math.round((1 - p.price / p.old) * 100)}%</span>` : p.isNew ? '<span class="badge new">Новинка</span>' : '';
+  return `<article class="card"><a class="im" href="#/p/${p.id}">${badge}<img src="${p.img}" alt="${esc(p.name)}" loading="lazy"></a>
+  <div class="bd"><a class="nm" href="#/p/${p.id}">${esc(p.name)}</a><div class="meta">${esc(p.mat)} · ${esc(p.color)}</div>
+  <div class="price"><b>${p.cat === 'kitchen' ? 'от ' : ''}${rub(p.price)}</b>${p.old ? `<s>${rub(p.old)}</s>` : ''}</div>
+  <div class="ft"><span class="stock ${p.stock ? '' : 'no'}">${p.stock ? 'В наличии' : 'Под заказ'}</span><button class="btn sm" data-add="${p.id}">В корзину</button></div></div></article>`;
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-add]'); if (b) { e.preventDefault(); add(+b.dataset.add); } });
+
+// Главная
+$('cats').innerHTML = Object.entries(CATS).map(([k, n]) => { const c = P.filter(p => p.cat === k).length; const pic = {sofa:'p01', chair:'p05', table:'p08', store:'p13', kitchen:'k2'}[k];
+  return `<a class="cat" href="#/catalog?cat=${k}"><img src="assets/${pic}.webp" alt="${n}" loading="lazy"><div><b>${n}</b><span>${c} ${c === 1 ? 'товар' : c < 5 ? 'товара' : 'товаров'}</span></div></a>`; }).join('');
+$('hits').innerHTML = [...P].sort((a, b) => b.pop - a.pop).slice(0, 4).map(card).join('');
+
+// Фильтры каталога
+const chk = (name, vals) => vals.map(v => `<label><input type="checkbox" name="${name}" value="${esc(v[0])}"> ${esc(v[1])}</label>`).join('');
+$('fcat').innerHTML = chk('cat', Object.entries(CATS));
+$('fmat').innerHTML = chk('mat', MATS.map(m => [m, m]));
+$('fcol').innerHTML = chk('col', COLORS.map(c => [c, c]));
+const vals = n => [...document.querySelectorAll(`#flt input[name=${n}]:checked`)].map(i => i.value);
+function renderList() {
+  const q = $('q').value.trim().toLowerCase(), cats = vals('cat'), mats = vals('mat'), cols = vals('col');
+  const mn = +$('pmin').value || 0, mx = +$('pmax').value || Infinity;
+  const L = P.filter(p => (!cats.length || cats.includes(p.cat)) && (!mats.length || matOf(p).some(m => mats.includes(m))) &&
+    (!cols.length || cols.includes(p.color)) && p.price >= mn && p.price <= mx && (!$('fstock').checked || p.stock) &&
+    (!q || (p.name + ' ' + p.mat + ' ' + p.color + ' ' + CATS[p.cat]).toLowerCase().includes(q)));
+  const s = $('sort').value;
+  L.sort(s === 'cheap' ? (a, b) => a.price - b.price : s === 'exp' ? (a, b) => b.price - a.price : s === 'new' ? (a, b) => b.isNew - a.isNew || b.pop - a.pop : (a, b) => b.pop - a.pop);
+  $('found').textContent = `Найдено: ${L.length}`;
+  const title = cats.length === 1 ? CATS[cats[0]] : q ? `Поиск: «${$('q').value.trim()}»` : 'Каталог мебели';
+  $('ctitle').textContent = title; $('crumb').textContent = title;
+  $('list').innerHTML = L.length ? L.map(card).join('') : '<div class="empty">Ничего не нашлось. Уберите часть фильтров или нажмите «Сбросить фильтры».</div>';
+}
+['change', 'input'].forEach(ev => $('flt').addEventListener(ev, renderList));
+$('sort').addEventListener('change', renderList);
+$('freset').addEventListener('click', () => { document.querySelectorAll('#flt input').forEach(i => { if (i.type === 'checkbox') i.checked = false; else i.value = ''; }); $('q').value = ''; renderList(); });
+$('ftoggle').addEventListener('click', () => $('flt').classList.toggle('open'));
+$('q').addEventListener('input', () => { if (!location.hash.startsWith('#/catalog')) location.hash = '#/catalog'; else renderList(); });
+
+// Карточка товара
+function renderProduct(id) {
+  const p = P.find(x => x.id === id);
+  if (!p) { $('prod').innerHTML = '<div class="done"><h1>Товар не найден</h1><p><a class="btn" href="#/catalog">В каталог</a></p></div>'; return; }
+  let n = 1;
+  $('prod').innerHTML = `<div class="crumbs"><a href="#/">Главная</a> / <a href="#/catalog?cat=${p.cat}">${CATS[p.cat]}</a> / ${esc(p.name)}</div>
+  <div class="prod"><div class="im"><img src="${p.img}" alt="${esc(p.name)}"></div>
+  <div><h1>${esc(p.name)}</h1><div class="price"><b>${p.cat === 'kitchen' ? 'от ' : ''}${rub(p.price)}</b>${p.old ? `<s>${rub(p.old)}</s>` : ''}</div>
+  <div class="muted" style="font-size:14px;margin-top:4px">или ${rub(Math.ceil(p.price / 6))} в месяц в рассрочку 0%</div>
+  <p class="lead">${esc(p.text)}</p>
+  <table class="specs"><tr><td>Размеры</td><td>${esc(p.size)}</td></tr><tr><td>Материал</td><td>${esc(p.mat)}</td></tr><tr><td>Цвет</td><td>${esc(p.color)}</td></tr><tr><td>Наличие</td><td class="stock ${p.stock ? '' : 'no'}">${p.stock ? 'В наличии, привезём за 1–3 дня' : 'Под заказ, 14–30 дней'}</td></tr></table>
+  <div class="buy"><div class="qty"><button aria-label="Меньше" id="qm">−</button><span id="qn">1</span><button aria-label="Больше" id="qp">+</button></div><button class="btn" id="qb">В корзину</button><a class="btn ghost" href="tel:+79000000000">Задать вопрос</a></div>
+  <div class="info"><div><span>🚚</span><span><b>Доставка ${p.price >= 30000 ? 'бесплатно' : '990 ₽'}</b>по городу, подъём на лифте</span></div><div><span>🛠</span><span><b>Сборка бесплатно</b>в день доставки, упаковку увозим</span></div><div><span>🛡</span><span><b>Гарантия 18 месяцев</b>на каркас, механизмы и фурнитуру</span></div></div>
+  </div></div>
+  <div class="sec"><div class="hd"><h2>Похожие товары</h2></div><div class="grid g4">${P.filter(x => x.cat === p.cat && x.id !== p.id).concat(P.filter(x => x.cat !== p.cat)).slice(0, 4).map(card).join('')}</div></div>`;
+  $('qm').onclick = () => { n = Math.max(1, n - 1); $('qn').textContent = n; };
+  $('qp').onclick = () => { n++; $('qn').textContent = n; };
+  $('qb').onclick = () => add(p.id, n);
+}
+
+// Корзина и итог
+const lines = () => Object.entries(cart).map(([id, n]) => ({p: P.find(x => x.id === +id), n})).filter(l => l.p && l.n > 0);
+const sums = () => { const goods = lines().reduce((a, l) => a + l.p.price * l.n, 0); const del = goods === 0 || goods >= 30000 ? 0 : 990; return {goods, del, total: goods + del}; };
+function summary(withBtn) {
+  const s = sums(), cnt = lines().reduce((a, l) => a + l.n, 0);
+  return `<div class="r"><span>Товары (${cnt})</span><b>${rub(s.goods)}</b></div><div class="r"><span>Доставка</span><b>${s.del ? rub(s.del) : 'бесплатно'}</b></div><div class="r"><span>Сборка</span><b>бесплатно</b></div>
+  <div class="r big"><span>Итого</span><span>${rub(s.total)}</span></div>${s.goods && s.goods < 30000 ? `<p class="muted" style="font-size:13px">До бесплатной доставки – ${rub(30000 - s.goods)}</p>` : ''}
+  ${withBtn ? '<a class="btn" href="#/checkout">Оформить заказ</a>' : ''}`;
+}
+function renderCart() {
+  const L = lines();
+  if (!L.length) { $('cartbox').innerHTML = '<div class="empty">В корзине пока пусто. <a href="#/catalog">Перейти в каталог</a></div>'; return; }
+  $('cartbox').innerHTML = `<div class="cartp"><div>${L.map(({p, n}) => `<div class="line"><a href="#/p/${p.id}"><img src="${p.img}" alt=""></a>
+    <div><a class="nm" href="#/p/${p.id}">${esc(p.name)}</a><div class="muted" style="font-size:13px">${esc(p.color)} · ${rub(p.price)} за шт.</div>
+    <div class="ctl"><div class="qty"><button data-q="${p.id}" data-d="-1" aria-label="Меньше">−</button><span>${n}</span><button data-q="${p.id}" data-d="1" aria-label="Больше">+</button></div><button class="rm" data-rm="${p.id}">Удалить</button></div></div>
+    <div class="sum">${rub(p.price * n)}</div></div>`).join('')}</div><aside class="total">${summary(true)}</aside></div>`;
+}
+$('cartbox').addEventListener('click', e => {
+  const q = e.target.closest('[data-q]'), r = e.target.closest('[data-rm]');
+  if (q) { const id = q.dataset.q; cart[id] = Math.max(0, (cart[id] || 0) + +q.dataset.d); if (!cart[id]) delete cart[id]; save(); renderCart(); }
+  if (r) { delete cart[r.dataset.rm]; save(); renderCart(); }
+});
+
+// Оформление (демо: заказ никуда не отправляется)
+$('order').addEventListener('submit', e => {
+  e.preventDefault(); const f = e.target;
+  if (!lines().length) { $('oerr').textContent = 'Корзина пуста – добавьте товары.'; return; }
+  if (!f.elements.name.value.trim()) { $('oerr').textContent = 'Укажите имя.'; f.elements.name.focus(); return; }
+  if (f.elements.phone.value.replace(/\D/g, '').length < 10) { $('oerr').textContent = 'Проверьте номер телефона.'; f.elements.phone.focus(); return; }
+  if (!f.elements.agree.checked) { $('oerr').textContent = 'Нужно согласие на обработку персональных данных.'; return; }
+  $('oerr').textContent = '';
+  $('onum').textContent = 'Заказ № ' + (100000 + Math.floor(Math.random() * 900000)) + ' · ' + rub(sums().total);
+  cart = {}; save(); f.reset(); location.hash = '#/done';
+});
+
+// Страницы по адресу после #
+const nav = $('nav');
+$('burger').addEventListener('click', () => nav.classList.toggle('open'));
+function route() {
+  const h = location.hash.slice(2), [path, qs] = h.split('?'), params = new URLSearchParams(qs || ''), seg = path.split('/');
+  const page = {'': 'home', catalog: 'catalog', p: 'product', cart: 'cart', checkout: 'checkout', done: 'done', delivery: 'delivery', contacts: 'contacts'}[seg[0]] || 'home';
+  document.querySelectorAll('.page').forEach(s => s.classList.toggle('on', s.id === 'pg-' + page));
+  nav.classList.remove('open');
+  nav.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.dataset.r === (page === 'catalog' && params.get('cat') === 'kitchen' ? 'kitchen' : page)));
+  if (page === 'catalog') {
+    if (params.has('cat')) document.querySelectorAll('#flt input[name=cat]').forEach(i => { i.checked = i.value === params.get('cat'); });
+    else if (!$('q').value) document.querySelectorAll('#flt input[name=cat]').forEach(i => { i.checked = false; });
+    if (params.get('sort')) $('sort').value = params.get('sort');
+    renderList();
+  }
+  if (page === 'product') renderProduct(+seg[1]);
+  if (page === 'cart') renderCart();
+  if (page === 'checkout') $('osum').innerHTML = summary(false);
+  if (!(page === 'catalog' && document.activeElement === $('q'))) window.scrollTo(0, 0);
+}
+addEventListener('hashchange', route);
+save(); route();
+</script>
+</body>
+</html>
